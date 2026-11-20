@@ -1,0 +1,375 @@
+2026-11-20 05:24:37 [INFO] [TestSetup] - Starting background Uvicorn test server on 127.0.0.1:8000...
+2026-11-20 05:24:38 [INFO] [TestSetup] - Test server is UP and healthy!
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"username": "testuser", "password": "Password123!"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (4.3ms) for POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsInJvbGUiOiJjdXN0b21lciIsImV4cCI6MTc5NTE1NTg3OCwiaWF0IjoxNzk1MTUyMjc4fQ.OozqjJIII4NXGsuCTT-nDt1lPgSX1VjS369l8v9hk9E","token_type":"bearer","expires_in":3600,"user_id":1,"username":"testuser","role":"customer"}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"username": "testuser", "password": "WrongPassword123!"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 401 (2.0ms) for POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid username or password"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"username": "non_existent_user_999", "password": "RandomPassword123!"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 401 (2.0ms) for POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid username or password"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"username": "testuser", "password": "Password123!"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (2.0ms) for POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsInJvbGUiOiJjdXN0b21lciIsImV4cCI6MTc5NTE1NTg3OCwiaWF0IjoxNzk1MTUyMjc4fQ.OozqjJIII4NXGsuCTT-nDt1lPgSX1VjS369l8v9hk9E","token_type":"bearer","expires_in":3600,"user_id":1,"username":"testuser","role":"customer"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/auth/me
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (2.5ms) for GET http://127.0.0.1:8000/api/v1/auth/me
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":1,"username":"testuser","email":"testuser@traveltest.com","role":"customer","created_at":"2026-11-20T05:24:36.888078"}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/auth/me
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 401 (1.6ms) for GET http://127.0.0.1:8000/api/v1/auth/me
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Authentication credentials were not provided"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/auth/me
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 401 (1.2ms) for GET http://127.0.0.1:8000/api/v1/auth/me
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid authentication token"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/auth/expired-token-simulate
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"username": "testuser", "password": "Password123!"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (2.2ms) for POST http://127.0.0.1:8000/api/v1/auth/expired-token-simulate
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"expired_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsInJvbGUiOiJjdXN0b21lciIsImV4cCI6MTc5NTE0NTA3OCwiaWF0IjoxNzk1MTQxNDc4fQ.bzEg7cw4bWzdeYfGTvXFuthdyoNdkKigmNgjTKrqglc","expires_in":-7200}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/auth/me
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 401 (1.3ms) for GET http://127.0.0.1:8000/api/v1/auth/me
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Token has expired"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/auth/register
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"username": "user_qi25fx", "email": "test_qyvx78@traveltesting.com", "password": "TestPassSecure123!", "role": "customer"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (91.1ms) for POST http://127.0.0.1:8000/api/v1/auth/register
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidXNlcm5hbWUiOiJ1c2VyX3FpMjVmeCIsInJvbGUiOiJjdXN0b21lciIsImV4cCI6MTc5NTE1NTg3OCwiaWF0IjoxNzk1MTUyMjc4fQ.pvv5HihjeHjU-YBECxjOof4I7NKnDxbPLbj4ZFYueIE","token_type":"bearer","expires_in":3600,"user_id":4,"username":"user_qi25fx","role":"customer"}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/auth/register
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"username": "testuser", "email": "duplicate@traveltest.com", "password": "Password123!", "role": "customer"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 409 (2.0ms) for POST http://127.0.0.1:8000/api/v1/auth/register
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Username or email already exists"}
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT available_seats FROM flights WHERE id = :flight_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 2, "client_reference_id": "TEST-BK-DHJWEG"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (14.6ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":1,"booking_reference":"TEST-BK-DHJWEG","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":2,"total_price":599.0,"status":"PENDING","created_at":"2026-11-20T05:24:38.222563","updated_at":"2026-11-20T05:24:38.222565"}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM bookings WHERE id = :booking_id -> Found 1 records
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT available_seats FROM flights WHERE id = :flight_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "HOTEL", "item_id": 1, "passengers_or_guests": 1, "client_reference_id": "TEST-HTL-JXRIQY"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (11.7ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":2,"booking_reference":"TEST-HTL-JXRIQY","user_id":1,"booking_type":"HOTEL","item_id":1,"passengers_or_guests":1,"total_price":180.0,"status":"PENDING","created_at":"2026-11-20T05:24:38.241696","updated_at":"2026-11-20T05:24:38.241697"}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM bookings WHERE id = :booking_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 2, "passengers_or_guests": 1, "client_reference_id": "DUP-MNTRKJ"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (12.8ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":3,"booking_reference":"DUP-MNTRKJ","user_id":1,"booking_type":"FLIGHT","item_id":2,"passengers_or_guests":1,"total_price":325.0,"status":"PENDING","created_at":"2026-11-20T05:24:38.258655","updated_at":"2026-11-20T05:24:38.258656"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 2, "passengers_or_guests": 1, "client_reference_id": "DUP-MNTRKJ"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 409 (2.7ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Duplicate booking detected with reference 'DUP-MNTRKJ'"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 99999, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 404 (2.4ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Flight ID 99999 not found"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "CRUISE", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (2.3ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"value_error","loc":["body","booking_type"],"msg":"Value error, booking_type must be either 'FLIGHT' or 'HOTEL'","input":"CRUISE","ctx":{"error":{}}}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 401 (1.6ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Authentication credentials were not provided"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (4.5ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":4,"booking_reference":"BK-BC806E5E","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":1,"total_price":299.5,"status":"PENDING","created_at":"2026-11-20T05:24:38.286963","updated_at":"2026-11-20T05:24:38.286964"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/bookings/4/status
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (5.1ms) for GET http://127.0.0.1:8000/api/v1/bookings/4/status
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"booking_id":4,"booking_reference":"BK-BC806E5E","status":"PENDING","booking_type":"FLIGHT","total_price":299.5,"payment_status":null,"cancellation_status":null}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 4, "amount": 299.5, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (7.9ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"payment_id":1,"payment_reference":"PAY-5D716C4142","booking_id":4,"amount":299.5,"currency":"USD","payment_method":"credit_card","status":"SUCCESS","transaction_date":"2026-11-20T05:24:38.301660","failure_reason":null}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/bookings/4/status
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (3.1ms) for GET http://127.0.0.1:8000/api/v1/bookings/4/status
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"booking_id":4,"booking_reference":"BK-BC806E5E","status":"CONFIRMED","booking_type":"FLIGHT","total_price":299.5,"payment_status":"SUCCESS","cancellation_status":null}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings/4/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"reason": "Customer canceled"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (9.3ms) for POST http://127.0.0.1:8000/api/v1/bookings/4/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"cancellation_id":1,"booking_id":4,"cancellation_reason":"Customer canceled","refund_amount":299.5,"refund_status":"PROCESSED","cancelled_at":"2026-11-20T05:24:38.314312","booking_status":"CANCELLED"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/bookings/4/status
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (3.0ms) for GET http://127.0.0.1:8000/api/v1/bookings/4/status
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"booking_id":4,"booking_reference":"BK-BC806E5E","status":"CANCELLED","booking_type":"FLIGHT","total_price":299.5,"payment_status":"SUCCESS","cancellation_status":"PROCESSED"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"username": "adminuser", "password": "AdminSecure2026!"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (2.0ms) for POST http://127.0.0.1:8000/api/v1/auth/login
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwidXNlcm5hbWUiOiJhZG1pbnVzZXIiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3OTUxNTU4NzgsImlhdCI6MTc5NTE1MjI3OH0.H8kgVI4mT51A4HQCho-1B3jT_J1Toas7xVzRcTU5ZKU","token_type":"bearer","expires_in":3600,"user_id":2,"username":"adminuser","role":"admin"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "HOTEL", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (180.3ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":5,"booking_reference":"BK-DE283DBB","user_id":1,"booking_type":"HOTEL","item_id":1,"passengers_or_guests":1,"total_price":180.0,"status":"PENDING","created_at":"2026-11-20T05:24:38.330550","updated_at":"2026-11-20T05:24:38.330551"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/bookings/5/status
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (3.0ms) for GET http://127.0.0.1:8000/api/v1/bookings/5/status
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"booking_id":5,"booking_reference":"BK-DE283DBB","status":"PENDING","booking_type":"HOTEL","total_price":180.0,"payment_status":null,"cancellation_status":null}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/bookings/98765/status
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 404 (2.3ms) for GET http://127.0.0.1:8000/api/v1/bookings/98765/status
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Booking with ID 98765 not found"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (10.7ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":6,"booking_reference":"BK-41F2E69C","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":1,"total_price":299.5,"status":"PENDING","created_at":"2026-11-20T05:24:38.520854","updated_at":"2026-11-20T05:24:38.520855"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings/6/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"reason": "Customer changed schedule"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (9.6ms) for POST http://127.0.0.1:8000/api/v1/bookings/6/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"cancellation_id":2,"booking_id":6,"cancellation_reason":"Customer changed schedule","refund_amount":0.0,"refund_status":"N/A","cancelled_at":"2026-11-20T05:24:38.531765","booking_status":"CANCELLED"}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM cancellations WHERE booking_id = :booking_id -> Found 1 records
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM bookings WHERE id = :booking_id -> Found 1 records
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT available_seats FROM flights WHERE id = :flight_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 2, "passengers_or_guests": 2}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (5.3ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":7,"booking_reference":"BK-C1CAB444","user_id":1,"booking_type":"FLIGHT","item_id":2,"passengers_or_guests":2,"total_price":650.0,"status":"PENDING","created_at":"2026-11-20T05:24:38.545222","updated_at":"2026-11-20T05:24:38.545223"}
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT available_seats FROM flights WHERE id = :flight_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 7, "amount": 650.0, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (14.8ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"payment_id":2,"payment_reference":"PAY-F88599E82A","booking_id":7,"amount":650.0,"currency":"USD","payment_method":"credit_card","status":"SUCCESS","transaction_date":"2026-11-20T05:24:38.551506","failure_reason":null}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings/7/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"reason": "Trip canceled by passenger"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (13.4ms) for POST http://127.0.0.1:8000/api/v1/bookings/7/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"cancellation_id":3,"booking_id":7,"cancellation_reason":"Trip canceled by passenger","refund_amount":650.0,"refund_status":"PROCESSED","cancelled_at":"2026-11-20T05:24:38.567524","booking_status":"CANCELLED"}
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT available_seats FROM flights WHERE id = :flight_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "HOTEL", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (7.3ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":8,"booking_reference":"BK-A892C1B9","user_id":1,"booking_type":"HOTEL","item_id":1,"passengers_or_guests":1,"total_price":180.0,"status":"PENDING","created_at":"2026-11-20T05:24:38.582578","updated_at":"2026-11-20T05:24:38.582579"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings/8/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"reason": "Reason 1"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (7.0ms) for POST http://127.0.0.1:8000/api/v1/bookings/8/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"cancellation_id":4,"booking_id":8,"cancellation_reason":"Reason 1","refund_amount":0.0,"refund_status":"N/A","cancelled_at":"2026-11-20T05:24:38.591053","booking_status":"CANCELLED"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings/8/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"reason": "Reason 2"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (2.4ms) for POST http://127.0.0.1:8000/api/v1/bookings/8/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Booking is already cancelled. Cannot cancel twice."}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings/77777/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"reason": "Does not exist"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 404 (2.3ms) for POST http://127.0.0.1:8000/api/v1/bookings/77777/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Booking with ID 77777 not found"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026-11-25', 'passengers': 2}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (11.8ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"total_flights":3,"flights":[{"id":1,"flight_number":"AA-101","airline":"American Airlines","origin":"JFK","destination":"LAX","departure_date":"2026-11-25","departure_time":"08:30 AM","arrival_time":"11:45 AM","price":299.5,"available_seats":43},{"id":2,"flight_number":"DL-202","airline":"Delta Air Lines","origin":"JFK","destination":"LAX","departure_date":"2026-11-25","departure_time":"01:15 PM","arrival_time":"04:30 PM","price":325.0,"available_seats":29},{"id":6,"flight_number":"SW-606","ai
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT available_seats FROM flights WHERE id = :flight_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 2, "client_reference_id": "E2E-BK-D135VC"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (11.2ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":9,"booking_reference":"E2E-BK-D135VC","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":2,"total_price":599.0,"status":"PENDING","created_at":"2026-11-20T05:24:38.619289","updated_at":"2026-11-20T05:24:38.619290"}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM bookings WHERE id = :booking_id -> Found 1 records
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT available_seats FROM flights WHERE id = :flight_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 9, "amount": 599.0, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (8.4ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"payment_id":3,"payment_reference":"PAY-B4AEF60F81","booking_id":9,"amount":599.0,"currency":"USD","payment_method":"credit_card","status":"SUCCESS","transaction_date":"2026-11-20T05:24:38.633621","failure_reason":null}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/bookings/9/status
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (3.1ms) for GET http://127.0.0.1:8000/api/v1/bookings/9/status
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"booking_id":9,"booking_reference":"E2E-BK-D135VC","status":"CONFIRMED","booking_type":"FLIGHT","total_price":599.0,"payment_status":"SUCCESS","cancellation_status":null}
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM payments WHERE booking_id = :booking_id ORDER BY id DESC -> Found 1 records
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM bookings WHERE id = :booking_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings/9/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"reason": "E2E test cancellation workflow"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (31.2ms) for POST http://127.0.0.1:8000/api/v1/bookings/9/cancel
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"cancellation_id":5,"booking_id":9,"cancellation_reason":"E2E test cancellation workflow","refund_amount":599.0,"refund_status":"PROCESSED","cancelled_at":"2026-11-20T05:24:38.649449","booking_status":"CANCELLED"}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/bookings/9/status
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (2.6ms) for GET http://127.0.0.1:8000/api/v1/bookings/9/status
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"booking_id":9,"booking_reference":"E2E-BK-D135VC","status":"CANCELLED","booking_type":"FLIGHT","total_price":599.0,"payment_status":"SUCCESS","cancellation_status":"PROCESSED"}
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT available_seats FROM flights WHERE id = :flight_id -> Found 1 records
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM cancellations WHERE booking_id = :booking_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026-11-25', 'passengers': 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (2.0ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"total_flights":3,"flights":[{"id":1,"flight_number":"AA-101","airline":"American Airlines","origin":"JFK","destination":"LAX","departure_date":"2026-11-25","departure_time":"08:30 AM","arrival_time":"11:45 AM","price":299.5,"available_seats":43},{"id":2,"flight_number":"DL-202","airline":"Delta Air Lines","origin":"JFK","destination":"LAX","departure_date":"2026-11-25","departure_time":"01:15 PM","arrival_time":"04:30 PM","price":325.0,"available_seats":29},{"id":6,"flight_number":"SW-606","ai
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026-11-25', 'return_date': '2026-12-02', 'passengers': 2}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (1.8ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"total_flights":3,"flights":[{"id":1,"flight_number":"AA-101","airline":"American Airlines","origin":"JFK","destination":"LAX","departure_date":"2026-11-25","departure_time":"08:30 AM","arrival_time":"11:45 AM","price":299.5,"available_seats":43},{"id":2,"flight_number":"DL-202","airline":"Delta Air Lines","origin":"JFK","destination":"LAX","departure_date":"2026-11-25","departure_time":"01:15 PM","arrival_time":"04:30 PM","price":325.0,"available_seats":29},{"id":6,"flight_number":"SW-606","ai
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'departure_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (1.6ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"missing","loc":["query","destination"],"msg":"Field required","input":null}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'destination': 'LAX', 'departure_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (1.4ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"missing","loc":["query","origin"],"msg":"Field required","input":null}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026-11-17'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.4ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Departure date cannot be in the past"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026-11-30', 'return_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.4ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Return date cannot be earlier than departure date"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '25-12-2026'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.5ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid departure_date format. Expected YYYY-MM-DD"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026/12/25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.4ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid departure_date format. Expected YYYY-MM-DD"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': 'invalid-date'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.3ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid departure_date format. Expected YYYY-MM-DD"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026-99-99'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.4ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid departure_date format. Expected YYYY-MM-DD"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'JFK', 'departure_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.2ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Origin and destination cannot be the same"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JF', 'destination': 'LAX', 'departure_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.3ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid origin code. Must be a 3-letter airport code (e.g., JFK)"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'NEWYORK', 'destination': 'LAX', 'departure_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.4ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid origin code. Must be a 3-letter airport code (e.g., JFK)"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': '123', 'destination': 'LAX', 'departure_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.2ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid origin code. Must be a 3-letter airport code (e.g., JFK)"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'J1K', 'destination': 'LAX', 'departure_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.2ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid origin code. Must be a 3-letter airport code (e.g., JFK)"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026-11-25', 'passengers': 0}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (1.4ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"greater_than_equal","loc":["query","passengers"],"msg":"Input should be greater than or equal to 1","input":"0","ctx":{"ge":1}}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026-11-25', 'passengers': -1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (1.2ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"greater_than_equal","loc":["query","passengers"],"msg":"Input should be greater than or equal to 1","input":"-1","ctx":{"ge":1}}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'origin': 'JFK', 'destination': 'LAX', 'departure_date': '2026-11-25', 'passengers': 11}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (1.4ms) for GET http://127.0.0.1:8000/api/v1/flights/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"less_than_equal","loc":["query","passengers"],"msg":"Input should be less than or equal to 10","input":"11","ctx":{"le":10}}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/1
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (2.3ms) for GET http://127.0.0.1:8000/api/v1/flights/1
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":1,"flight_number":"AA-101","airline":"American Airlines","origin":"JFK","destination":"LAX","departure_date":"2026-11-25","departure_time":"08:30 AM","arrival_time":"11:45 AM","price":299.5,"available_seats":43}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/flights/99999
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 404 (1.7ms) for GET http://127.0.0.1:8000/api/v1/flights/99999
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Flight with ID 99999 not found"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'city': 'Los Angeles', 'checkin_date': '2026-11-23', 'checkout_date': '2026-11-27', 'guests': 2}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (3.4ms) for GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"total_hotels":2,"hotels":[{"id":1,"name":"Grand Plaza Hotel","city":"Los Angeles","address":"100 Grand Ave, Los Angeles, CA","rating":4.5,"price_per_night":180.0,"available_rooms":23},{"id":2,"name":"Sunset Boulevard Resort","city":"Los Angeles","address":"8440 Sunset Blvd, West Hollywood, CA","rating":4.8,"price_per_night":250.0,"available_rooms":10}]}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'city': '12345', 'checkin_date': '2026-11-23', 'checkout_date': '2026-11-27'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.4ms) for GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Invalid city location provided"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'city': 'Los Angeles', 'checkin_date': '2026-11-30', 'checkout_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.6ms) for GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Check-out date must be after check-in date"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'city': 'Los Angeles', 'checkin_date': '2026-11-25', 'checkout_date': '2026-11-25'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.4ms) for GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Check-out date must be after check-in date"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'city': 'Los Angeles', 'checkin_date': '2026-11-18', 'checkout_date': '2026-11-24'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (1.7ms) for GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Check-in date cannot be in the past"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'checkin_date': '2026-11-23', 'checkout_date': '2026-11-27'}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (1.2ms) for GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"missing","loc":["query","city"],"msg":"Field required","input":null}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'city': 'Los Angeles', 'checkin_date': '2026-11-23', 'checkout_date': '2026-11-27', 'guests': 0}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (1.3ms) for GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"greater_than_equal","loc":["query","guests"],"msg":"Input should be greater than or equal to 1","input":"0","ctx":{"ge":1}}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'city': 'Los Angeles', 'checkin_date': '2026-11-23', 'checkout_date': '2026-11-27', 'guests': -1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (1.4ms) for GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"greater_than_equal","loc":["query","guests"],"msg":"Input should be greater than or equal to 1","input":"-1","ctx":{"ge":1}}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Params: {'city': 'Los Angeles', 'checkin_date': '2026-11-23', 'checkout_date': '2026-11-27', 'guests': 15}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 422 (1.4ms) for GET http://127.0.0.1:8000/api/v1/hotels/search
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":[{"type":"less_than_equal","loc":["query","guests"],"msg":"Input should be less than or equal to 10","input":"15","ctx":{"le":10}}]}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/1
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (2.1ms) for GET http://127.0.0.1:8000/api/v1/hotels/1
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":1,"name":"Grand Plaza Hotel","city":"Los Angeles","address":"100 Grand Ave, Los Angeles, CA","rating":4.5,"price_per_night":180.0,"available_rooms":23}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: GET http://127.0.0.1:8000/api/v1/hotels/88888
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 404 (1.8ms) for GET http://127.0.0.1:8000/api/v1/hotels/88888
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Hotel with ID 88888 not found"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (12.3ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":10,"booking_reference":"BK-517CE86E","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":1,"total_price":299.5,"status":"PENDING","created_at":"2026-11-20T05:24:38.797844","updated_at":"2026-11-20T05:24:38.797846"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 10, "amount": 299.5, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (85.0ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"payment_id":4,"payment_reference":"PAY-38DBC9E33C","booking_id":10,"amount":299.5,"currency":"USD","payment_method":"credit_card","status":"SUCCESS","transaction_date":"2026-11-20T05:24:38.810608","failure_reason":null}
+2026-11-20 05:24:38 [DEBUG] [AssertionHelper] - JSON schema validation passed.
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM payments WHERE booking_id = :booking_id ORDER BY id DESC -> Found 1 records
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM bookings WHERE id = :booking_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (57.9ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":11,"booking_reference":"BK-8B7B9263","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":1,"total_price":299.5,"status":"PENDING","created_at":"2026-11-20T05:24:38.901047","updated_at":"2026-11-20T05:24:38.901048"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 11, "amount": 299.5, "currency": "USD", "payment_method": "credit_card", "card_number": "4000000000000002"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 402 (4.2ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":{"message":"Payment simulation failed","payment_id":5,"payment_reference":"PAY-3DF854D9CD","status":"FAILED","failure_reason":"Card declined: Insufficient funds or invalid CVV"}}
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM payments WHERE booking_id = :booking_id ORDER BY id DESC -> Found 1 records
+2026-11-20 05:24:38 [DEBUG] [DBHelper] - Executed SQL: SELECT * FROM bookings WHERE id = :booking_id -> Found 1 records
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (3.8ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":12,"booking_reference":"BK-903BEC90","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":1,"total_price":299.5,"status":"PENDING","created_at":"2026-11-20T05:24:38.965510","updated_at":"2026-11-20T05:24:38.965511"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 12, "amount": 349.5, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (2.4ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Payment amount (349.5) does not match booking total (299.5)"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (3.7ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":13,"booking_reference":"BK-53B4F5D2","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":1,"total_price":299.5,"status":"PENDING","created_at":"2026-11-20T05:24:38.974048","updated_at":"2026-11-20T05:24:38.974049"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 13, "amount": 0, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (2.5ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Payment amount must be greater than zero"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (3.9ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":14,"booking_reference":"BK-84B1FAC7","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":1,"total_price":299.5,"status":"PENDING","created_at":"2026-11-20T05:24:38.982795","updated_at":"2026-11-20T05:24:38.982796"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 14, "amount": -100.5, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (2.5ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Payment amount must be greater than zero"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_type": "FLIGHT", "item_id": 1, "passengers_or_guests": 1}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 201 (3.9ms) for POST http://127.0.0.1:8000/api/v1/bookings
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"id":15,"booking_reference":"BK-7C445740","user_id":1,"booking_type":"FLIGHT","item_id":1,"passengers_or_guests":1,"total_price":299.5,"status":"PENDING","created_at":"2026-11-20T05:24:38.991707","updated_at":"2026-11-20T05:24:38.991708"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 15, "amount": 299.5, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - <== RESPONSE: 200 (4.3ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Response Content: {"payment_id":6,"payment_reference":"PAY-6CF5A77024","booking_id":15,"amount":299.5,"currency":"USD","payment_method":"credit_card","status":"SUCCESS","transaction_date":"2026-11-20T05:24:38.996607","failure_reason":null}
+2026-11-20 05:24:38 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:38 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 15, "amount": 299.5, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:39 [INFO] [BaseAPIClient] - <== RESPONSE: 400 (2.4ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:39 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Booking is already paid and confirmed"}
+2026-11-20 05:24:39 [INFO] [BaseAPIClient] - ==> REQUEST: POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:39 [DEBUG] [BaseAPIClient] -     Body: {"booking_id": 99999, "amount": 100.0, "currency": "USD", "payment_method": "credit_card"}
+2026-11-20 05:24:39 [INFO] [BaseAPIClient] - <== RESPONSE: 404 (2.2ms) for POST http://127.0.0.1:8000/api/v1/payments/process
+2026-11-20 05:24:39 [DEBUG] [BaseAPIClient] -     Response Content: {"detail":"Booking ID 99999 not found"}
