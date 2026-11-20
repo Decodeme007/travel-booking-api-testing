@@ -2,9 +2,12 @@ name: Travel Booking API Automation CI
 
 on:
   push:
-    branches: [ main, master, develop ]
+    branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
+permissions:
+  contents: write
 
 jobs:
   api-regression-tests:
@@ -32,6 +35,7 @@ jobs:
     - name: Run Pytest API Test Suite & Generate HTML Report
       run: |
         python -m pytest tests/ -v --html=reports/test_report.html --self-contained-html
+        cp reports/test_report.html reports/index.html
 
     - name: Upload Test Report Artifact
       if: always()
@@ -42,3 +46,11 @@ jobs:
           reports/test_report.html
           reports/logs/test_execution.log
         retention-days: 14
+
+    - name: Deploy Live Test Report to GitHub Pages
+      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./reports
+        publish_branch: gh-pages
